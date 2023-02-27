@@ -1,4 +1,4 @@
-# Brainfuck Interpreter
+# Optimizing Brainfuck Interpreter
 
 A simple optimizing brainfuck interpreter written in Rust.
 
