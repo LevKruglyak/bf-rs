@@ -38,9 +38,6 @@ impl<S: BFState<Cell = u8>> BFExecutor for OptimizedInterpreter<S> {
                     *self.state.cell_mut() = value.wrapping_add(offset);
                 }
                 Output => {
-                    if !self.state.cell().is_ascii() {
-                        println!("[{}]", self.state.cell());
-                    }
                     output
                         .write(self.state.cell_slice())
                         .map_err(|_| exit(0))

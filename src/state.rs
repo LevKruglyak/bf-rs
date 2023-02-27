@@ -130,5 +130,7 @@ impl<C: Default + Copy> BFState for InfiniteState<C> {
         }
     }
 
-    fn print_debug(&self) {}
+    fn print_debug(&self) {
+        unimplemented!()
+    }
 }

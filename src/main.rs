@@ -60,22 +60,6 @@ enum Interpreters {
     Optimized,
 }
 
-struct Config {
-    a: u32,
-    b: i32,
-    c: bool,
-}
-
-impl Default for Config {
-    fn default() -> Self {
-        Self {
-            a: 10,
-            b: 10,
-            c: false,
-        }
-    }
-}
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = std::env::args().collect();
 
@@ -101,7 +85,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     match interpreter {
         Simple => SimpleInterpreter::<InfiniteState<u8>>::load(&contents).run_stdio(),
         Optimized => {
-            OptimizedInterpreter::<StackAllocatedState<65_536>>::load(&contents).run_stdio()
+            OptimizedInterpreter::<StackAllocatedState<300_000>>::load(&contents).run_stdio()
         }
     };
 
